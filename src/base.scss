@@ -1,0 +1,151 @@
+@font-face {
+    font-family: orbitronBold;
+    src: url('./assets/fonts/zh/SourceHanSansCN-Bold.otf');
+}
+
+@font-face {
+    font-family: orbitronHeavy;
+    src: url('./assets/fonts/zh/SourceHanSansCN-Heavy.otf');
+}
+
+@font-face {
+    font-family: orbitronMedium;
+    src: url('./assets/fonts/zh/SourceHanSansCN-Medium.otf');
+}
+
+@font-face {
+    font-family: orbitronEn;
+    src: url('./assets/fonts/en//orbitron-medium.otf');
+}
+
+.zh_font_bold {
+    font-family: orbitronBold;
+}
+
+.zh_font_heavy {
+    font-family: orbitronHeavy;
+}
+
+.zh_font_medium {
+    font-family: orbitronMedium;
+}
+
+.en_font {
+    font-family: orbitronEn;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+
+}
+.flex_center {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.font-7 {
+    font-size: 12px;
+    transform: scale(0.583);
+}
+.font-6 {
+    font-size: 12px;
+    transform: scale(0.5);
+}
+$color-fff:#fff;
+$color-zhu:#001E3E;
+$color-blueone:#00FCFC;
+$color-orange:#FF7B00;
+$color-bluetwo:rgba(0, 70, 148, .2);
+$color-bluefill:rgba(9, 79, 99, .3);
+$color-bluethree:#1EBDE8;
+
+$colorList: (
+    color-zhu:$color-zhu,
+    color-blueone:$color-blueone,
+    color-orange:$color-orange,
+    color-bluetwo:$color-bluetwo,
+    color-bluefill:$color-bluefill,
+    color-bluethree:$color-bluethree,
+    color-fff:$color_fff
+);
+
+@each $type,
+$color in $colorList {
+    .#{$type} {
+        color: #{$color}
+    }
+
+    .bg-#{$type} {
+        background-color: #{$color}
+    }
+}
+
+@each $size in 16,
+18,
+19,
+20,
+22,
+23,
+24,
+25,
+26,
+28,
+29,
+30,
+32,
+34,
+36,
+40,
+42,
+48,
+60 {
+    .font-#{$size} {
+        font-size: #{$size}px !important;
+    }
+}
+
+@each $weight in 400,
+500,
+600,
+800,
+bold {
+    .font-#{$weight} {
+        font-weight: #{$weight} !important;
+    }
+}
+
+// @mixin px2rem($property,$px-values,$baseline-px:16px,$support-for-ie:false){
+//     //Conver the baseline into rems
+//     $baseline-rem: $baseline-px / 1rem * 1;
+//     //Print the first line in pixel values
+//     @if $support-for-ie {
+//       #{$property}: $px-values;
+//     }
+//     //if there is only one (numeric) value, return the property/value line for it.
+//     @if type-of($px-values) == "number"{
+//       #{$property}: $px-values / $baseline-rem;
+//     }
+//     @else {
+//       //Create an empty list that we can dump values into
+//       $rem-values:();
+//       @each $value in $px-values{
+//         // If the value is zero or not a number, return it
+//         @if $value == 0 or type-of($value) != "number"{
+//           $rem-values: append($rem-values, $value / $baseline-rem);
+//         }
+//       }
+//       // Return the property and its list of converted values
+//       #{$property}: $rem-values;
+//     }
+//   }
+// @function px2em($px, $base-font-size: 16px) {
+//   @if (unitless($px)) {
+//     @warn "Assuming #{$px} to be in pixels, attempting to convert it into pixels for you";
+//     @return px2em($px + 0px); // That may fail.
+//   } @else if (unit($px) == em) {
+//     @return $px;
+//   }
+//   @return ($px / $base-font-size) * 1em;
+// }
