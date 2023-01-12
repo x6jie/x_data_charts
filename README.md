@@ -1,5 +1,5 @@
 # data-echarts
-
+基于echarts和vue3.2实现的数据大屏(5:3比例，静态数据)
 ## Project setup
 ```
 npm install
@@ -22,3 +22,4 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
